@@ -9,6 +9,8 @@ struct vec2 {
   constexpr vec2(float a) : vec2{a, a} {}
   constexpr vec2(int a) : vec2{a, a} {}
   constexpr vec2(float x, float y) : x{x}, y{y} {}
+  constexpr vec2(unsigned x, unsigned y)
+      : x{static_cast<float>(x)}, y{static_cast<float>(y)} {}
   constexpr vec2(int x, int y)
       : x{static_cast<float>(x)}, y{static_cast<float>(y)} {}
 
