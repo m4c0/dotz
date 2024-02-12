@@ -59,15 +59,19 @@ struct vec4 {
   float w;
 
   constexpr vec4() = default;
-  constexpr vec4(float a) : vec4{a, a} {}
-  constexpr vec4(int a) : vec4{a, a} {}
-  constexpr vec4(float x, float y) : x{x}, y{y} {}
-  constexpr vec4(unsigned x, unsigned y)
+  constexpr vec4(float a) : vec4{a, a, a, a} {}
+  constexpr vec4(int a) : vec4{a, a, a, a} {}
+  constexpr vec4(float x, float y, float z, float w) : x{x}, y{y}, z{z}, w{w} {}
+  constexpr vec4(unsigned x, unsigned y, unsigned z, unsigned w)
       : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)} {}
-  constexpr vec4(int x, int y)
+      , y{static_cast<float>(y)}
+      , z{static_cast<float>(z)}
+      , w{static_cast<float>(w)} {}
+  constexpr vec4(int x, int y, int z, int w)
       : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)} {}
+      , y{static_cast<float>(y)}
+      , z{static_cast<float>(z)}
+      , w{static_cast<float>(w)} {}
 
   constexpr vec4(const vec4 &o) = default;
   constexpr vec4(vec4 &&o) = default;
