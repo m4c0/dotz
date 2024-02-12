@@ -51,4 +51,28 @@ struct vec2 {
 [[nodiscard]] constexpr vec2 floor(vec2 a) noexcept {
   return vec2{static_cast<int>(a.x), static_cast<int>(a.y)};
 }
+
+struct vec4 {
+  float x;
+  float y;
+  float z;
+  float w;
+
+  constexpr vec4() = default;
+  constexpr vec4(float a) : vec4{a, a} {}
+  constexpr vec4(int a) : vec4{a, a} {}
+  constexpr vec4(float x, float y) : x{x}, y{y} {}
+  constexpr vec4(unsigned x, unsigned y)
+      : x{static_cast<float>(x)}
+      , y{static_cast<float>(y)} {}
+  constexpr vec4(int x, int y)
+      : x{static_cast<float>(x)}
+      , y{static_cast<float>(y)} {}
+
+  constexpr vec4(const vec4 &o) = default;
+  constexpr vec4(vec4 &&o) = default;
+  constexpr vec4 &operator=(const vec4 &o) = default;
+  constexpr vec4 &operator=(vec4 &&o) = default;
+};
+
 } // namespace dotz
