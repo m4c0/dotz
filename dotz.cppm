@@ -51,6 +51,12 @@ struct vec2 {
 [[nodiscard]] constexpr vec2 floor(vec2 a) noexcept {
   return vec2{static_cast<int>(a.x), static_cast<int>(a.y)};
 }
+[[nodiscard]] constexpr vec2 min(vec2 a, vec2 b) noexcept {
+  return vec2{a.x < b.x ? a.x : b.x, a.y < b.y ? a.y : b.y};
+}
+[[nodiscard]] constexpr vec2 max(vec2 a, vec2 b) noexcept {
+  return vec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
+}
 
 struct vec4 {
   float x;
