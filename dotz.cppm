@@ -57,6 +57,9 @@ struct vec2 {
 [[nodiscard]] constexpr vec2 max(vec2 a, vec2 b) noexcept {
   return vec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
 }
+[[nodiscard]] constexpr float sq_length(vec2 a) noexcept {
+  return a.x * a.x + a.y * a.y;
+}
 
 struct vec4 {
   float x;
@@ -84,5 +87,7 @@ struct vec4 {
   constexpr vec4 &operator=(const vec4 &o) = default;
   constexpr vec4 &operator=(vec4 &&o) = default;
 };
-
+[[nodiscard]] constexpr float sq_length(vec4 a) noexcept {
+  return a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
+}
 } // namespace dotz
