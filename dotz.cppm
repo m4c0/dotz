@@ -1,6 +1,9 @@
 export module dotz;
 
 export namespace dotz {
+[[nodiscard]] constexpr float max(float a, float b) { return a > b ? a : b; }
+[[nodiscard]] constexpr float min(float a, float b) { return a < b ? a : b; }
+
 struct vec2 {
   float x;
   float y;
@@ -87,6 +90,44 @@ struct vec4 {
   constexpr vec4 &operator=(const vec4 &o) = default;
   constexpr vec4 &operator=(vec4 &&o) = default;
 };
+[[nodiscard]] constexpr vec4 operator-(vec4 a) noexcept {
+  return vec4{-a.x, -a.y, -a.z, -a.w};
+}
+[[nodiscard]] constexpr vec4 operator+(vec4 a, float b) noexcept {
+  return vec4{a.x + b, a.y + b, a.z + b, a.w + b};
+}
+[[nodiscard]] constexpr vec4 operator-(vec4 a, float b) noexcept {
+  return vec4{a.x - b, a.y - b, a.z - b, a.w - b};
+}
+[[nodiscard]] constexpr vec4 operator*(vec4 a, float b) noexcept {
+  return vec4{a.x * b, a.y * b, a.z * b, a.w * b};
+}
+[[nodiscard]] constexpr vec4 operator/(vec4 a, float b) noexcept {
+  return vec4{a.x / b, a.y / b, a.z / b, a.w / b};
+}
+[[nodiscard]] constexpr vec4 operator+(vec4 a, vec4 b) noexcept {
+  return vec4{a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w};
+}
+[[nodiscard]] constexpr vec4 operator-(vec4 a, vec4 b) noexcept {
+  return vec4{a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w};
+}
+[[nodiscard]] constexpr vec4 operator*(vec4 a, vec4 b) noexcept {
+  return vec4{a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w};
+}
+[[nodiscard]] constexpr vec4 operator/(vec4 a, vec4 b) noexcept {
+  return vec4{a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w};
+}
+
+[[nodiscard]] constexpr vec4 floor(vec4 a) noexcept {
+  return vec4{static_cast<int>(a.x), static_cast<int>(a.y),
+              static_cast<int>(a.z), static_cast<int>(a.w)};
+}
+[[nodiscard]] constexpr vec4 min(vec4 a, vec4 b) noexcept {
+  return vec4{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)};
+}
+[[nodiscard]] constexpr vec4 max(vec4 a, vec4 b) noexcept {
+  return vec4{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)};
+}
 [[nodiscard]] constexpr float sq_length(vec4 a) noexcept {
   return a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
 }
