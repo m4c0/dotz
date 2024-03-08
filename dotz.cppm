@@ -91,7 +91,7 @@ struct vec4 {
   constexpr vec4 &operator=(vec4 &&o) = default;
 
   [[nodiscard]] constexpr auto xy() const noexcept { return dotz::vec2{x, y}; }
-  [[nodiscard]] constexpr auto zw() const noexcept { return dotz::vec2{w, z}; }
+  [[nodiscard]] constexpr auto zw() const noexcept { return dotz::vec2{z, w}; }
 };
 [[nodiscard]] constexpr vec4 operator-(vec4 a) noexcept {
   return vec4{-a.x, -a.y, -a.z, -a.w};
