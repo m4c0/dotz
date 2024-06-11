@@ -134,4 +134,60 @@ struct vec4 {
 [[nodiscard]] constexpr float sq_length(vec4 a) noexcept {
   return a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
 }
+
+struct ivec2 {
+  int x;
+  int y;
+
+  constexpr ivec2() = default;
+  constexpr ivec2(int a) : ivec2{a, a} {}
+  constexpr ivec2(unsigned x, unsigned y)
+      : x{static_cast<int>(x)}
+      , y{static_cast<int>(y)} {}
+  constexpr ivec2(int x, int y) : x{x}, y{y} {}
+
+  constexpr ivec2(const ivec2 &o) = default;
+  constexpr ivec2(ivec2 &&o) = default;
+  constexpr ivec2 &operator=(const ivec2 &o) = default;
+  constexpr ivec2 &operator=(ivec2 &&o) = default;
+};
+
+[[nodiscard]] constexpr ivec2 operator-(ivec2 a) noexcept {
+  return ivec2{-a.x, -a.y};
+}
+[[nodiscard]] constexpr ivec2 operator+(ivec2 a, int b) noexcept {
+  return ivec2{a.x + b, a.y + b};
+}
+[[nodiscard]] constexpr ivec2 operator-(ivec2 a, int b) noexcept {
+  return ivec2{a.x - b, a.y - b};
+}
+[[nodiscard]] constexpr ivec2 operator*(ivec2 a, int b) noexcept {
+  return ivec2{a.x * b, a.y * b};
+}
+[[nodiscard]] constexpr ivec2 operator/(ivec2 a, int b) noexcept {
+  return ivec2{a.x / b, a.y / b};
+}
+[[nodiscard]] constexpr ivec2 operator+(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x + b.x, a.y + b.y};
+}
+[[nodiscard]] constexpr ivec2 operator-(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x - b.x, a.y - b.y};
+}
+[[nodiscard]] constexpr ivec2 operator*(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x * b.x, a.y * b.y};
+}
+[[nodiscard]] constexpr ivec2 operator/(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x / b.x, a.y / b.y};
+}
+
+[[nodiscard]] constexpr ivec2 min(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x < b.x ? a.x : b.x, a.y < b.y ? a.y : b.y};
+}
+[[nodiscard]] constexpr ivec2 max(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
+}
+[[nodiscard]] constexpr int sq_length(ivec2 a) noexcept {
+  return a.x * a.x + a.y * a.y;
+}
+
 } // namespace dotz
