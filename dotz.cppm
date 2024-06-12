@@ -150,6 +150,10 @@ struct ivec2 {
   constexpr ivec2(ivec2 &&o) = default;
   constexpr ivec2 &operator=(const ivec2 &o) = default;
   constexpr ivec2 &operator=(ivec2 &&o) = default;
+
+  [[nodiscard]] constexpr bool operator==(const ivec2 &o) const noexcept {
+    return x == o.x && y == o.y;
+  }
 };
 
 [[nodiscard]] constexpr ivec2 operator-(ivec2 a) noexcept {
