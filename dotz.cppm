@@ -194,4 +194,16 @@ struct ivec2 {
   return a.x * a.x + a.y * a.y;
 }
 
+[[nodiscard]] constexpr vec2 operator+(ivec2 a, float b) noexcept {
+  return vec2{a.x + b, a.y + b};
+}
+[[nodiscard]] constexpr vec2 operator-(ivec2 a, float b) noexcept {
+  return vec2{a.x - b, a.y - b};
+}
+[[nodiscard]] constexpr vec2 operator*(ivec2 a, float b) noexcept {
+  return vec2{a.x * b, a.y * b};
+}
+[[nodiscard]] constexpr vec2 operator/(ivec2 a, float b) noexcept {
+  return vec2{a.x / b, a.y / b};
+}
 } // namespace dotz
