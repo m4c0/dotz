@@ -1,8 +1,9 @@
 export module dotz;
 
 export namespace dotz {
-[[nodiscard]] constexpr float max(float a, float b) { return a > b ? a : b; }
-[[nodiscard]] constexpr float min(float a, float b) { return a < b ? a : b; }
+[[nodiscard]] constexpr auto max(auto a, auto b) { return a > b ? a : b; }
+[[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
+[[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
 
 struct vec2 {
   float x;
@@ -185,13 +186,13 @@ struct ivec2 {
 }
 
 [[nodiscard]] constexpr ivec2 min(ivec2 a, ivec2 b) noexcept {
-  return ivec2{a.x < b.x ? a.x : b.x, a.y < b.y ? a.y : b.y};
+  return ivec2{min(a.x, b.x), min(a.y, b.y)};
 }
 [[nodiscard]] constexpr ivec2 max(ivec2 a, ivec2 b) noexcept {
-  return ivec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
+  return ivec2{max(a.x, b.x), max(a.y, b.y)};
 }
 [[nodiscard]] constexpr ivec2 abs(ivec2 a) noexcept {
-  return ivec2{a.x > 0 ? a.x : -a.x, a.y > 0 ? a.y : -a.y};
+  return ivec2{abs(a.x), abs(a.y)};
 }
 [[nodiscard]] constexpr int sq_length(ivec2 a) noexcept {
   return a.x * a.x + a.y * a.y;
