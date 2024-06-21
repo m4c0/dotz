@@ -190,6 +190,9 @@ struct ivec2 {
 [[nodiscard]] constexpr ivec2 max(ivec2 a, ivec2 b) noexcept {
   return ivec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
 }
+[[nodiscard]] constexpr ivec2 abs(ivec2 a) noexcept {
+  return ivec2{a.x > 0 ? a.x : -a.x, a.y > 0 ? a.y : -a.y};
+}
 [[nodiscard]] constexpr int sq_length(ivec2 a) noexcept {
   return a.x * a.x + a.y * a.y;
 }
