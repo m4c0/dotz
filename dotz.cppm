@@ -162,6 +162,8 @@ struct ivec2 {
   [[nodiscard]] constexpr bool operator==(const ivec2 &o) const noexcept {
     return x == o.x && y == o.y;
   }
+
+  [[nodiscard]] constexpr operator vec2() const { return {x, y}; }
 };
 
 [[nodiscard]] constexpr ivec2 operator-(ivec2 a) noexcept {
