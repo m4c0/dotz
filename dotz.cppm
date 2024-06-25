@@ -56,6 +56,9 @@ struct vec2 {
   return vec2{a.x / b.x, a.y / b.y};
 }
 
+[[nodiscard]] constexpr vec2 abs(vec2 a) noexcept {
+  return vec2{abs(a.x), abs(a.y)};
+}
 [[nodiscard]] constexpr vec2 floor(vec2 a) noexcept {
   return vec2{static_cast<int>(a.x), static_cast<int>(a.y)};
 }
