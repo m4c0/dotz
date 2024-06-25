@@ -5,6 +5,10 @@ export namespace dotz {
 [[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
 [[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
 
+[[nodiscard]] constexpr float mix(float x, float y, float a) {
+  return x * (1.0 - a) + y * a;
+}
+
 struct vec2 {
   float x;
   float y;
@@ -60,6 +64,9 @@ struct vec2 {
 }
 [[nodiscard]] constexpr vec2 max(vec2 a, vec2 b) noexcept {
   return vec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
+}
+[[nodiscard]] constexpr vec2 mix(vec2 a, vec2 b, float f) noexcept {
+  return vec2{mix(a.x, b.x, f), mix(a.y, b.y, f)};
 }
 [[nodiscard]] constexpr float sq_length(vec2 a) noexcept {
   return a.x * a.x + a.y * a.y;
