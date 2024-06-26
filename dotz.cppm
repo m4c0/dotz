@@ -1,9 +1,15 @@
+module;
+#include <math.h>
+
 export module dotz;
 
 export namespace dotz {
 [[nodiscard]] constexpr auto max(auto a, auto b) { return a > b ? a : b; }
 [[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
 [[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
+
+[[nodiscard]] constexpr auto sqrt(float a) { return ::sqrtf(a); }
+[[nodiscard]] constexpr auto sqrt(double a) { return ::sqrt(a); }
 
 [[nodiscard]] constexpr float mix(float x, float y, float a) {
   return x * (1.0 - a) + y * a;
