@@ -80,6 +80,9 @@ struct vec2 {
 [[nodiscard]] constexpr float sq_length(vec2 a) noexcept {
   return a.x * a.x + a.y * a.y;
 }
+[[nodiscard]] constexpr float length(vec2 a) noexcept {
+  return sqrt(sq_length(a));
+}
 
 struct vec4 {
   float x;
