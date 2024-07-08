@@ -205,6 +205,9 @@ struct ivec2 {
 [[nodiscard]] constexpr ivec2 operator/(ivec2 a, ivec2 b) noexcept {
   return ivec2{a.x / b.x, a.y / b.y};
 }
+[[nodiscard]] constexpr ivec2 operator%(ivec2 a, ivec2 b) noexcept {
+  return ivec2{a.x % b.x, a.y % b.y};
+}
 
 [[nodiscard]] constexpr ivec2 min(ivec2 a, ivec2 b) noexcept {
   return ivec2{min(a.x, b.x), min(a.y, b.y)};
