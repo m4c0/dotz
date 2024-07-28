@@ -234,4 +234,61 @@ struct ivec2 {
 [[nodiscard]] constexpr vec2 operator/(ivec2 a, float b) {
   return vec2{a.x / b, a.y / b};
 }
+
+struct ivec4 {
+  int x;
+  int y;
+  int z;
+  int w;
+
+  constexpr ivec4() = default;
+  constexpr ivec4(int a) : ivec4{a, a, a, a} {}
+  constexpr ivec4(unsigned x, unsigned y, unsigned z, unsigned w)
+      : x{static_cast<int>(x)}
+      , y{static_cast<int>(y)}
+      , z{static_cast<int>(z)}
+      , w{static_cast<int>(w)} {}
+  constexpr ivec4(int x, int y, int z, int w) : x{x}, y{y}, z{z}, w{w} {}
+
+  constexpr ivec4(const ivec4 &o) = default;
+  constexpr ivec4(ivec4 &&o) = default;
+  constexpr ivec4 &operator=(const ivec4 &o) = default;
+  constexpr ivec4 &operator=(ivec4 &&o) = default;
+
+  [[nodiscard]] constexpr bool operator==(const ivec4 &o) const {
+    return x == o.x && y == o.y && z == o.z && w == o.w;
+  }
+
+  [[nodiscard]] constexpr operator vec4() const { return {x, y, z, w}; }
+};
+
+[[nodiscard]] constexpr ivec4 operator-(ivec4 a) { return ivec4{-a.x, -a.y, -a.z, -a.w}; }
+[[nodiscard]] constexpr ivec4 operator+(ivec4 a, int b) {
+  return ivec4{a.x + b, a.y + b, a.z + b, a.w + b};
+}
+[[nodiscard]] constexpr ivec4 operator-(ivec4 a, int b) {
+  return ivec4{a.x - b, a.y - b, a.z - b, a.w - b};
+}
+[[nodiscard]] constexpr ivec4 operator*(ivec4 a, int b) {
+  return ivec4{a.x * b, a.y * b, a.z * b, a.w * b};
+}
+[[nodiscard]] constexpr ivec4 operator/(ivec4 a, int b) {
+  return ivec4{a.x / b, a.y / b, a.z / b, a.w / b};
+}
+[[nodiscard]] constexpr ivec4 operator+(ivec4 a, ivec4 b) {
+  return ivec4{a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w};
+}
+[[nodiscard]] constexpr ivec4 operator-(ivec4 a, ivec4 b) {
+  return ivec4{a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w};
+}
+[[nodiscard]] constexpr ivec4 operator*(ivec4 a, ivec4 b) {
+  return ivec4{a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w};
+}
+[[nodiscard]] constexpr ivec4 operator/(ivec4 a, ivec4 b) {
+  return ivec4{a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w};
+}
+[[nodiscard]] constexpr ivec4 operator%(ivec4 a, ivec4 b) {
+  return ivec4{a.x % b.x, a.y % b.y, a.z % b.z, a.w % b.w};
+}
+
 } // namespace dotz
