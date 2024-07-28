@@ -8,6 +8,7 @@ export namespace dotz {
 [[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
 [[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
 
+[[nodiscard]] constexpr float pow(float b, float e) { return ::pow(b, e); }
 [[nodiscard]] constexpr auto sqrt(float a) { return ::sqrtf(a); }
 [[nodiscard]] constexpr auto sqrt(double a) { return ::sqrt(a); }
 
@@ -70,6 +71,9 @@ struct vec2 {
 }
 [[nodiscard]] constexpr vec2 floor(vec2 a) noexcept {
   return vec2{static_cast<int>(a.x), static_cast<int>(a.y)};
+}
+[[nodiscard]] constexpr vec2 pow(vec2 b, float e) noexcept {
+  return vec2{pow(b.x, e), pow(b.y, e)};
 }
 [[nodiscard]] constexpr vec2 min(vec2 a, vec2 b) noexcept {
   return vec2{a.x < b.x ? a.x : b.x, a.y < b.y ? a.y : b.y};
@@ -147,6 +151,9 @@ struct vec4 {
 [[nodiscard]] constexpr vec4 floor(vec4 a) noexcept {
   return vec4{static_cast<int>(a.x), static_cast<int>(a.y),
               static_cast<int>(a.z), static_cast<int>(a.w)};
+}
+[[nodiscard]] constexpr vec4 pow(vec4 b, float e) noexcept {
+  return vec4{pow(b.x, e), pow(b.y, e), pow(b.z, e), pow(b.w, e)};
 }
 [[nodiscard]] constexpr vec4 min(vec4 a, vec4 b) noexcept {
   return vec4{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)};
