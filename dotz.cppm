@@ -28,9 +28,11 @@ struct vec2 {
   constexpr vec2(int a) : vec2{a, a} {}
   constexpr vec2(float x, float y) : x{x}, y{y} {}
   constexpr vec2(unsigned x, unsigned y)
-      : x{static_cast<float>(x)}, y{static_cast<float>(y)} {}
+      : x{static_cast<float>(x)}
+      , y{static_cast<float>(y)} {}
   constexpr vec2(int x, int y)
-      : x{static_cast<float>(x)}, y{static_cast<float>(y)} {}
+      : x{static_cast<float>(x)}
+      , y{static_cast<float>(y)} {}
 
   constexpr vec2(const vec2 &o) = default;
   constexpr vec2(vec2 &&o) = default;
@@ -38,58 +40,52 @@ struct vec2 {
   constexpr vec2 &operator=(vec2 &&o) = default;
 };
 
-[[nodiscard]] constexpr vec2 operator-(vec2 a) noexcept {
-  return vec2{-a.x, -a.y};
-}
-[[nodiscard]] constexpr vec2 operator+(vec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator-(vec2 a) { return vec2{-a.x, -a.y}; }
+[[nodiscard]] constexpr vec2 operator+(vec2 a, float b) {
   return vec2{a.x + b, a.y + b};
 }
-[[nodiscard]] constexpr vec2 operator-(vec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator-(vec2 a, float b) {
   return vec2{a.x - b, a.y - b};
 }
-[[nodiscard]] constexpr vec2 operator*(vec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator*(vec2 a, float b) {
   return vec2{a.x * b, a.y * b};
 }
-[[nodiscard]] constexpr vec2 operator/(vec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator/(vec2 a, float b) {
   return vec2{a.x / b, a.y / b};
 }
-[[nodiscard]] constexpr vec2 operator+(vec2 a, vec2 b) noexcept {
+[[nodiscard]] constexpr vec2 operator+(vec2 a, vec2 b) {
   return vec2{a.x + b.x, a.y + b.y};
 }
-[[nodiscard]] constexpr vec2 operator-(vec2 a, vec2 b) noexcept {
+[[nodiscard]] constexpr vec2 operator-(vec2 a, vec2 b) {
   return vec2{a.x - b.x, a.y - b.y};
 }
-[[nodiscard]] constexpr vec2 operator*(vec2 a, vec2 b) noexcept {
+[[nodiscard]] constexpr vec2 operator*(vec2 a, vec2 b) {
   return vec2{a.x * b.x, a.y * b.y};
 }
-[[nodiscard]] constexpr vec2 operator/(vec2 a, vec2 b) noexcept {
+[[nodiscard]] constexpr vec2 operator/(vec2 a, vec2 b) {
   return vec2{a.x / b.x, a.y / b.y};
 }
 
-[[nodiscard]] constexpr vec2 abs(vec2 a) noexcept {
-  return vec2{abs(a.x), abs(a.y)};
-}
-[[nodiscard]] constexpr vec2 floor(vec2 a) noexcept {
+[[nodiscard]] constexpr vec2 abs(vec2 a) { return vec2{abs(a.x), abs(a.y)}; }
+[[nodiscard]] constexpr vec2 floor(vec2 a) {
   return vec2{static_cast<int>(a.x), static_cast<int>(a.y)};
 }
-[[nodiscard]] constexpr vec2 pow(vec2 b, float e) noexcept {
+[[nodiscard]] constexpr vec2 pow(vec2 b, float e) {
   return vec2{pow(b.x, e), pow(b.y, e)};
 }
-[[nodiscard]] constexpr vec2 min(vec2 a, vec2 b) noexcept {
+[[nodiscard]] constexpr vec2 min(vec2 a, vec2 b) {
   return vec2{a.x < b.x ? a.x : b.x, a.y < b.y ? a.y : b.y};
 }
-[[nodiscard]] constexpr vec2 max(vec2 a, vec2 b) noexcept {
+[[nodiscard]] constexpr vec2 max(vec2 a, vec2 b) {
   return vec2{a.x > b.x ? a.x : b.x, a.y > b.y ? a.y : b.y};
 }
-[[nodiscard]] constexpr vec2 mix(vec2 a, vec2 b, float f) noexcept {
+[[nodiscard]] constexpr vec2 mix(vec2 a, vec2 b, float f) {
   return vec2{mix(a.x, b.x, f), mix(a.y, b.y, f)};
 }
-[[nodiscard]] constexpr float sq_length(vec2 a) noexcept {
+[[nodiscard]] constexpr float sq_length(vec2 a) {
   return a.x * a.x + a.y * a.y;
 }
-[[nodiscard]] constexpr float length(vec2 a) noexcept {
-  return sqrt(sq_length(a));
-}
+[[nodiscard]] constexpr float length(vec2 a) { return sqrt(sq_length(a)); }
 
 struct vec4 {
   float x;
@@ -117,51 +113,51 @@ struct vec4 {
   constexpr vec4 &operator=(const vec4 &o) = default;
   constexpr vec4 &operator=(vec4 &&o) = default;
 
-  [[nodiscard]] constexpr auto xy() const noexcept { return dotz::vec2{x, y}; }
-  [[nodiscard]] constexpr auto zw() const noexcept { return dotz::vec2{z, w}; }
+  [[nodiscard]] constexpr auto xy() const { return dotz::vec2{x, y}; }
+  [[nodiscard]] constexpr auto zw() const { return dotz::vec2{z, w}; }
 };
-[[nodiscard]] constexpr vec4 operator-(vec4 a) noexcept {
+[[nodiscard]] constexpr vec4 operator-(vec4 a) {
   return vec4{-a.x, -a.y, -a.z, -a.w};
 }
-[[nodiscard]] constexpr vec4 operator+(vec4 a, float b) noexcept {
+[[nodiscard]] constexpr vec4 operator+(vec4 a, float b) {
   return vec4{a.x + b, a.y + b, a.z + b, a.w + b};
 }
-[[nodiscard]] constexpr vec4 operator-(vec4 a, float b) noexcept {
+[[nodiscard]] constexpr vec4 operator-(vec4 a, float b) {
   return vec4{a.x - b, a.y - b, a.z - b, a.w - b};
 }
-[[nodiscard]] constexpr vec4 operator*(vec4 a, float b) noexcept {
+[[nodiscard]] constexpr vec4 operator*(vec4 a, float b) {
   return vec4{a.x * b, a.y * b, a.z * b, a.w * b};
 }
-[[nodiscard]] constexpr vec4 operator/(vec4 a, float b) noexcept {
+[[nodiscard]] constexpr vec4 operator/(vec4 a, float b) {
   return vec4{a.x / b, a.y / b, a.z / b, a.w / b};
 }
-[[nodiscard]] constexpr vec4 operator+(vec4 a, vec4 b) noexcept {
+[[nodiscard]] constexpr vec4 operator+(vec4 a, vec4 b) {
   return vec4{a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w};
 }
-[[nodiscard]] constexpr vec4 operator-(vec4 a, vec4 b) noexcept {
+[[nodiscard]] constexpr vec4 operator-(vec4 a, vec4 b) {
   return vec4{a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w};
 }
-[[nodiscard]] constexpr vec4 operator*(vec4 a, vec4 b) noexcept {
+[[nodiscard]] constexpr vec4 operator*(vec4 a, vec4 b) {
   return vec4{a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w};
 }
-[[nodiscard]] constexpr vec4 operator/(vec4 a, vec4 b) noexcept {
+[[nodiscard]] constexpr vec4 operator/(vec4 a, vec4 b) {
   return vec4{a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w};
 }
 
-[[nodiscard]] constexpr vec4 floor(vec4 a) noexcept {
+[[nodiscard]] constexpr vec4 floor(vec4 a) {
   return vec4{static_cast<int>(a.x), static_cast<int>(a.y),
               static_cast<int>(a.z), static_cast<int>(a.w)};
 }
-[[nodiscard]] constexpr vec4 pow(vec4 b, float e) noexcept {
+[[nodiscard]] constexpr vec4 pow(vec4 b, float e) {
   return vec4{pow(b.x, e), pow(b.y, e), pow(b.z, e), pow(b.w, e)};
 }
-[[nodiscard]] constexpr vec4 min(vec4 a, vec4 b) noexcept {
+[[nodiscard]] constexpr vec4 min(vec4 a, vec4 b) {
   return vec4{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)};
 }
-[[nodiscard]] constexpr vec4 max(vec4 a, vec4 b) noexcept {
+[[nodiscard]] constexpr vec4 max(vec4 a, vec4 b) {
   return vec4{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)};
 }
-[[nodiscard]] constexpr float sq_length(vec4 a) noexcept {
+[[nodiscard]] constexpr float sq_length(vec4 a) {
   return a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
 }
 
@@ -181,67 +177,61 @@ struct ivec2 {
   constexpr ivec2 &operator=(const ivec2 &o) = default;
   constexpr ivec2 &operator=(ivec2 &&o) = default;
 
-  [[nodiscard]] constexpr bool operator==(const ivec2 &o) const noexcept {
+  [[nodiscard]] constexpr bool operator==(const ivec2 &o) const {
     return x == o.x && y == o.y;
   }
 
   [[nodiscard]] constexpr operator vec2() const { return {x, y}; }
 };
 
-[[nodiscard]] constexpr ivec2 operator-(ivec2 a) noexcept {
-  return ivec2{-a.x, -a.y};
-}
-[[nodiscard]] constexpr ivec2 operator+(ivec2 a, int b) noexcept {
+[[nodiscard]] constexpr ivec2 operator-(ivec2 a) { return ivec2{-a.x, -a.y}; }
+[[nodiscard]] constexpr ivec2 operator+(ivec2 a, int b) {
   return ivec2{a.x + b, a.y + b};
 }
-[[nodiscard]] constexpr ivec2 operator-(ivec2 a, int b) noexcept {
+[[nodiscard]] constexpr ivec2 operator-(ivec2 a, int b) {
   return ivec2{a.x - b, a.y - b};
 }
-[[nodiscard]] constexpr ivec2 operator*(ivec2 a, int b) noexcept {
+[[nodiscard]] constexpr ivec2 operator*(ivec2 a, int b) {
   return ivec2{a.x * b, a.y * b};
 }
-[[nodiscard]] constexpr ivec2 operator/(ivec2 a, int b) noexcept {
+[[nodiscard]] constexpr ivec2 operator/(ivec2 a, int b) {
   return ivec2{a.x / b, a.y / b};
 }
-[[nodiscard]] constexpr ivec2 operator+(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 operator+(ivec2 a, ivec2 b) {
   return ivec2{a.x + b.x, a.y + b.y};
 }
-[[nodiscard]] constexpr ivec2 operator-(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 operator-(ivec2 a, ivec2 b) {
   return ivec2{a.x - b.x, a.y - b.y};
 }
-[[nodiscard]] constexpr ivec2 operator*(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 operator*(ivec2 a, ivec2 b) {
   return ivec2{a.x * b.x, a.y * b.y};
 }
-[[nodiscard]] constexpr ivec2 operator/(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 operator/(ivec2 a, ivec2 b) {
   return ivec2{a.x / b.x, a.y / b.y};
 }
-[[nodiscard]] constexpr ivec2 operator%(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 operator%(ivec2 a, ivec2 b) {
   return ivec2{a.x % b.x, a.y % b.y};
 }
 
-[[nodiscard]] constexpr ivec2 min(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 min(ivec2 a, ivec2 b) {
   return ivec2{min(a.x, b.x), min(a.y, b.y)};
 }
-[[nodiscard]] constexpr ivec2 max(ivec2 a, ivec2 b) noexcept {
+[[nodiscard]] constexpr ivec2 max(ivec2 a, ivec2 b) {
   return ivec2{max(a.x, b.x), max(a.y, b.y)};
 }
-[[nodiscard]] constexpr ivec2 abs(ivec2 a) noexcept {
-  return ivec2{abs(a.x), abs(a.y)};
-}
-[[nodiscard]] constexpr int sq_length(ivec2 a) noexcept {
-  return a.x * a.x + a.y * a.y;
-}
+[[nodiscard]] constexpr ivec2 abs(ivec2 a) { return ivec2{abs(a.x), abs(a.y)}; }
+[[nodiscard]] constexpr int sq_length(ivec2 a) { return a.x * a.x + a.y * a.y; }
 
-[[nodiscard]] constexpr vec2 operator+(ivec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator+(ivec2 a, float b) {
   return vec2{a.x + b, a.y + b};
 }
-[[nodiscard]] constexpr vec2 operator-(ivec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator-(ivec2 a, float b) {
   return vec2{a.x - b, a.y - b};
 }
-[[nodiscard]] constexpr vec2 operator*(ivec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator*(ivec2 a, float b) {
   return vec2{a.x * b, a.y * b};
 }
-[[nodiscard]] constexpr vec2 operator/(ivec2 a, float b) noexcept {
+[[nodiscard]] constexpr vec2 operator/(ivec2 a, float b) {
   return vec2{a.x / b, a.y / b};
 }
 } // namespace dotz
