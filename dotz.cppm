@@ -1,5 +1,11 @@
 module;
-#include <math.h>
+extern "C" {
+double cos(double);
+double pow(double, double);
+double sin(double);
+double sqrt(double);
+float sqrtf(float);
+}
 
 export module dotz;
 
@@ -262,7 +268,9 @@ struct ivec4 {
   [[nodiscard]] constexpr operator vec4() const { return {x, y, z, w}; }
 };
 
-[[nodiscard]] constexpr ivec4 operator-(ivec4 a) { return ivec4{-a.x, -a.y, -a.z, -a.w}; }
+[[nodiscard]] constexpr ivec4 operator-(ivec4 a) {
+  return ivec4{-a.x, -a.y, -a.z, -a.w};
+}
 [[nodiscard]] constexpr ivec4 operator+(ivec4 a, int b) {
   return ivec4{a.x + b, a.y + b, a.z + b, a.w + b};
 }
