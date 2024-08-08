@@ -5,6 +5,7 @@ double pow(double, double);
 double sin(double);
 double sqrt(double);
 float sqrtf(float);
+float roundf(float);
 }
 
 export module dotz;
@@ -75,6 +76,9 @@ struct vec2 {
 [[nodiscard]] constexpr vec2 abs(vec2 a) { return vec2{abs(a.x), abs(a.y)}; }
 [[nodiscard]] constexpr vec2 floor(vec2 a) {
   return vec2{static_cast<int>(a.x), static_cast<int>(a.y)};
+}
+[[nodiscard]] constexpr vec2 round(vec2 a) {
+  return vec2{roundf(a.x), roundf(a.y)};
 }
 [[nodiscard]] constexpr vec2 pow(vec2 b, float e) {
   return vec2{pow(b.x, e), pow(b.y, e)};
