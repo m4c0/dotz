@@ -16,6 +16,9 @@ export namespace dotz {
 [[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
 [[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
 
+template<typename T>
+[[nodiscard]] constexpr auto clamp(T x, T mn, T mx) { return min(max(x, mn), mx); }
+
 [[nodiscard]] constexpr float pow(float b, float e) { return ::pow(b, e); }
 [[nodiscard]] constexpr auto sqrt(float a) { return ::sqrtf(a); }
 [[nodiscard]] constexpr auto sqrt(double a) { return ::sqrt(a); }
