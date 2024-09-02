@@ -30,6 +30,8 @@ template<typename T>
   return x * (1.0 - a) + y * a;
 }
 
+[[nodiscard]] constexpr auto normalise(auto v) { return v / length(v); }
+
 struct vec2 {
   float x;
   float y;
