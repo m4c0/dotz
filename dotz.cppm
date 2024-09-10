@@ -308,4 +308,16 @@ struct ivec4 {
   return ivec4{a.x % b.x, a.y % b.y, a.z % b.z, a.w % b.w};
 }
 
+[[nodiscard]] constexpr ivec4 min(ivec4 a, ivec4 b) {
+  return ivec4{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)};
+}
+[[nodiscard]] constexpr ivec4 max(ivec4 a, ivec4 b) {
+  return ivec4{max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w)};
+}
+[[nodiscard]] constexpr ivec4 abs(ivec4 a) {
+  return ivec4{abs(a.x), abs(a.y), abs(a.z), abs(a.w)};
+}
+[[nodiscard]] constexpr int sq_length(ivec4 a) {
+  return a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
+}
 } // namespace dotz
