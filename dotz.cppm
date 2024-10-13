@@ -26,6 +26,8 @@ template<typename T>
 [[nodiscard]] constexpr auto sin(double a) { return ::sin(a); }
 [[nodiscard]] constexpr auto cos(double a) { return ::cos(a); }
 
+[[nodiscard]] constexpr auto floor(float a) { return ::floorf(a); }
+
 [[nodiscard]] constexpr float mix(float x, float y, float a) {
   return x * (1.0 - a) + y * a;
 }
