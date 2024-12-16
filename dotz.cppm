@@ -1,6 +1,7 @@
 module;
 extern "C" {
 double cos(double);
+double exp(double);
 double pow(double, double);
 double sin(double);
 double sqrt(double);
@@ -19,6 +20,7 @@ export namespace dotz {
 template<typename T>
 [[nodiscard]] constexpr auto clamp(T x, T mn, T mx) { return min(max(x, mn), mx); }
 
+[[nodiscard]] constexpr auto exp(double a) { return ::exp(a); }
 [[nodiscard]] constexpr float pow(float b, float e) { return ::pow(b, e); }
 [[nodiscard]] constexpr auto sqrt(float a) { return ::sqrtf(a); }
 [[nodiscard]] constexpr auto sqrt(double a) { return ::sqrt(a); }
