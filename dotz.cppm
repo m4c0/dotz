@@ -23,6 +23,7 @@ template<typename T>
 
 [[nodiscard]] constexpr auto exp(double a) { return ::exp(a); }
 [[nodiscard]] constexpr float pow(float b, float e) { return ::pow(b, e); }
+[[nodiscard]] constexpr auto round(float a) { return ::roundf(a); }
 [[nodiscard]] constexpr auto sqrt(float a) { return ::sqrtf(a); }
 [[nodiscard]] constexpr auto sqrt(double a) { return ::sqrt(a); }
 
