@@ -110,6 +110,73 @@ struct vec2 {
 }
 [[nodiscard]] constexpr float length(vec2 a) { return sqrt(sq_length(a)); }
 
+struct vec3 {
+  float x;
+  float y;
+  float z;
+
+  constexpr vec3() = default;
+  constexpr vec3(float a) : vec3{a, a, a} {}
+  constexpr vec3(int a) : vec3{a, a, a} {}
+  constexpr vec3(float x, float y, float z) : x{x}, y{y}, z{z} {}
+  constexpr vec3(unsigned x, unsigned y, unsigned z)
+      : x{static_cast<float>(x)}
+      , y{static_cast<float>(y)}
+      , z{static_cast<float>(z)} {}
+  constexpr vec3(int x, int y, int z)
+      : x{static_cast<float>(x)}
+      , y{static_cast<float>(y)}
+      , z{static_cast<float>(z)} {}
+
+  constexpr vec3(const vec3 &o) = default;
+  constexpr vec3(vec3 &&o) = default;
+  constexpr vec3 &operator=(const vec3 &o) = default;
+  constexpr vec3 &operator=(vec3 &&o) = default;
+};
+[[nodiscard]] constexpr vec3 operator-(vec3 a) {
+  return vec3{-a.x, -a.y, -a.z};
+}
+[[nodiscard]] constexpr vec3 operator+(vec3 a, float b) {
+  return vec3{a.x + b, a.y + b, a.z + b};
+}
+[[nodiscard]] constexpr vec3 operator-(vec3 a, float b) {
+  return vec3{a.x - b, a.y - b, a.z - b};
+}
+[[nodiscard]] constexpr vec3 operator*(vec3 a, float b) {
+  return vec3{a.x * b, a.y * b, a.z * b};
+}
+[[nodiscard]] constexpr vec3 operator/(vec3 a, float b) {
+  return vec3{a.x / b, a.y / b, a.z / b};
+}
+[[nodiscard]] constexpr vec3 operator+(vec3 a, vec3 b) {
+  return vec3{a.x + b.x, a.y + b.y, a.z + b.z};
+}
+[[nodiscard]] constexpr vec3 operator-(vec3 a, vec3 b) {
+  return vec3{a.x - b.x, a.y - b.y, a.z - b.z};
+}
+[[nodiscard]] constexpr vec3 operator*(vec3 a, vec3 b) {
+  return vec3{a.x * b.x, a.y * b.y, a.z * b.z};
+}
+[[nodiscard]] constexpr vec3 operator/(vec3 a, vec3 b) {
+  return vec3{a.x / b.x, a.y / b.y, a.z / b.z};
+}
+
+[[nodiscard]] constexpr vec3 floor(vec3 a) {
+  return vec3{floorf(a.x), floorf(a.y), floorf(a.z)};
+}
+[[nodiscard]] constexpr vec3 pow(vec3 b, float e) {
+  return vec3{pow(b.x, e), pow(b.y, e), pow(b.z, e)};
+}
+[[nodiscard]] constexpr vec3 min(vec3 a, vec3 b) {
+  return vec3{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z)};
+}
+[[nodiscard]] constexpr vec3 max(vec3 a, vec3 b) {
+  return vec3{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z)};
+}
+[[nodiscard]] constexpr float sq_length(vec3 a) {
+  return a.x * a.x + a.y * a.y + a.z * a.z;
+}
+
 struct vec4 {
   float x;
   float y;
