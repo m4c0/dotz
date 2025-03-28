@@ -7,6 +7,7 @@ double sin(double);
 double sqrt(double);
 double tanh(double);
 float floorf(float);
+float fmodf(float, float);
 float roundf(float);
 float sqrtf(float);
 }
@@ -32,6 +33,8 @@ template<typename T>
 [[nodiscard]] constexpr auto tanh(double a) { return ::tanh(a); }
 
 [[nodiscard]] constexpr auto floor(float a) { return ::floorf(a); }
+
+[[nodiscard]] constexpr auto mod(float a, float b) { return ::fmodf(a, b); }
 
 [[nodiscard]] constexpr float mix(float x, float y, float a) {
   return x * (1.0 - a) + y * a;
