@@ -15,6 +15,10 @@ float sqrtf(float);
 export module dotz;
 
 export namespace dotz {
+constexpr const auto pi = 3.141592653589783;
+
+[[nodiscard]] constexpr auto radians(auto a) { return a * pi / 180.0; }
+
 [[nodiscard]] constexpr auto max(auto a, auto b) { return a > b ? a : b; }
 [[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
 [[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
