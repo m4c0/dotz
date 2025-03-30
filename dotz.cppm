@@ -21,8 +21,8 @@ constexpr const auto pi = 3.141592653589783;
 
 [[nodiscard]] constexpr auto max(auto a, auto b) { return a > b ? a : b; }
 [[nodiscard]] constexpr auto min(auto a, auto b) { return a < b ? a : b; }
-[[nodiscard]] constexpr auto abs(auto a) { return a > 0 ? a : -a; }
-[[nodiscard]] constexpr auto sign(auto a) { return a / abs(a); }
+[[nodiscard]] constexpr auto abs(auto a) { return a >= 0 ? a : -a; }
+[[nodiscard]] constexpr auto sign(auto a) { return a == 0 ? 0 : a > 0 ? 1 : -1; }
 
 template<typename T>
 [[nodiscard]] constexpr auto clamp(T x, T mn, T mx) { return min(max(x, mn), mx); }
