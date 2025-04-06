@@ -46,6 +46,7 @@ template<typename T>
 }
 
 [[nodiscard]] constexpr auto normalise(auto v) { return v / length(v); }
+[[nodiscard]] constexpr float length(auto a) { return sqrt(sq_length(a)); }
 
 struct vec2 {
   float x;
@@ -116,7 +117,6 @@ struct vec2 {
 [[nodiscard]] constexpr float sq_length(vec2 a) {
   return a.x * a.x + a.y * a.y;
 }
-[[nodiscard]] constexpr float length(vec2 a) { return sqrt(sq_length(a)); }
 
 struct vec3 {
   float x;
