@@ -206,6 +206,7 @@ struct vec4 {
       , z{static_cast<float>(z)}
       , w{static_cast<float>(w)} {}
   constexpr vec4(dotz::vec2 xy, dotz::vec2 zw) : vec4 { xy.x, xy.y, zw.x, zw.y } {}
+  constexpr vec4(dotz::vec2 xy, float z, float w) : vec4 { xy.x, xy.y, z, w } {}
 
   constexpr vec4(const vec4 &o) = default;
   constexpr vec4(vec4 &&o) = default;
