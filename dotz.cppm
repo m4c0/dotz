@@ -140,6 +140,9 @@ struct vec3 {
   constexpr vec3(vec3 &&o) = default;
   constexpr vec3 &operator=(const vec3 &o) = default;
   constexpr vec3 &operator=(vec3 &&o) = default;
+
+  [[nodiscard]] constexpr auto xy() const { return dotz::vec2{x, y}; }
+  [[nodiscard]] constexpr auto xz() const { return dotz::vec2{x, z}; }
 };
 [[nodiscard]] constexpr vec3 operator-(vec3 a) {
   return vec3{-a.x, -a.y, -a.z};
@@ -214,6 +217,7 @@ struct vec4 {
   constexpr vec4 &operator=(vec4 &&o) = default;
 
   [[nodiscard]] constexpr auto xy() const { return dotz::vec2{x, y}; }
+  [[nodiscard]] constexpr auto xz() const { return dotz::vec2{x, z}; }
   [[nodiscard]] constexpr auto zw() const { return dotz::vec2{z, w}; }
 };
 [[nodiscard]] constexpr vec4 operator-(vec4 a) {
