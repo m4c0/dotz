@@ -22,8 +22,11 @@ template<typename T>
 [[nodiscard]] constexpr auto sqrt(float a) { return ::sqrtf(a); }
 [[nodiscard]] constexpr auto sqrt(double a) { return ::sqrt(a); }
 
+[[nodiscard]] constexpr auto sinf(float a) { return ::sinf(a); }
 [[nodiscard]] constexpr auto sin(double a) { return ::sin(a); }
+[[nodiscard]] constexpr auto cosf(float a) { return ::cosf(a); }
 [[nodiscard]] constexpr auto cos(double a) { return ::cos(a); }
+[[nodiscard]] constexpr auto tanf(float a) { return ::tanf(a); }
 [[nodiscard]] constexpr auto tan(double a) { return ::tan(a); }
 [[nodiscard]] constexpr auto tanh(double a) { return ::tanh(a); }
 
