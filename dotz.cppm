@@ -143,8 +143,8 @@ struct vec3 {
   constexpr vec3 &operator=(const vec3 &o) = default;
   constexpr vec3 &operator=(vec3 &&o) = default;
 
-  [[nodiscard]] constexpr auto xy() const { return dotz::vec2{x, y}; }
-  [[nodiscard]] constexpr auto xz() const { return dotz::vec2{x, z}; }
+  [[nodiscard]] constexpr auto xy() const { return vec2{x, y}; }
+  [[nodiscard]] constexpr auto xz() const { return vec2{x, z}; }
 };
 [[nodiscard]] constexpr vec3 operator-(vec3 a) {
   return vec3{-a.x, -a.y, -a.z};
@@ -210,17 +210,17 @@ struct vec4 {
       , y{static_cast<float>(y)}
       , z{static_cast<float>(z)}
       , w{static_cast<float>(w)} {}
-  constexpr vec4(dotz::vec2 xy, dotz::vec2 zw) : vec4 { xy.x, xy.y, zw.x, zw.y } {}
-  constexpr vec4(dotz::vec2 xy, float z, float w) : vec4 { xy.x, xy.y, z, w } {}
+  constexpr vec4(vec2 xy, vec2 zw) : vec4 { xy.x, xy.y, zw.x, zw.y } {}
+  constexpr vec4(vec2 xy, float z, float w) : vec4 { xy.x, xy.y, z, w } {}
 
   constexpr vec4(const vec4 &o) = default;
   constexpr vec4(vec4 &&o) = default;
   constexpr vec4 &operator=(const vec4 &o) = default;
   constexpr vec4 &operator=(vec4 &&o) = default;
 
-  [[nodiscard]] constexpr auto xy() const { return dotz::vec2{x, y}; }
-  [[nodiscard]] constexpr auto xz() const { return dotz::vec2{x, z}; }
-  [[nodiscard]] constexpr auto zw() const { return dotz::vec2{z, w}; }
+  [[nodiscard]] constexpr auto xy() const { return vec2{x, y}; }
+  [[nodiscard]] constexpr auto xz() const { return vec2{x, z}; }
+  [[nodiscard]] constexpr auto zw() const { return vec2{z, w}; }
 };
 [[nodiscard]] constexpr vec4 operator-(vec4 a) {
   return vec4{-a.x, -a.y, -a.z, -a.w};
