@@ -5,6 +5,7 @@ double exp(double);
 double pow(double, double);
 double sin(double);
 double sqrt(double);
+double tan(double);
 double tanh(double);
 float floorf(float);
 float fmodf(float, float);
@@ -35,6 +36,7 @@ template<typename T>
 
 [[nodiscard]] constexpr auto sin(double a) { return ::sin(a); }
 [[nodiscard]] constexpr auto cos(double a) { return ::cos(a); }
+[[nodiscard]] constexpr auto tan(double a) { return ::tan(a); }
 [[nodiscard]] constexpr auto tanh(double a) { return ::tanh(a); }
 
 [[nodiscard]] constexpr auto floor(float a) { return ::floorf(a); }
