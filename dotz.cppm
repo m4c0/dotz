@@ -1,17 +1,5 @@
 module;
-extern "C" {
-double cos(double);
-double exp(double);
-double pow(double, double);
-double sin(double);
-double sqrt(double);
-double tan(double);
-double tanh(double);
-float floorf(float);
-float fmodf(float, float);
-float roundf(float);
-float sqrtf(float);
-}
+#include <math.h>
 
 export module dotz;
 
