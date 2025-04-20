@@ -119,6 +119,9 @@ struct vec2 {
 [[nodiscard]] constexpr float sq_length(vec2 a) {
   return a.x * a.x + a.y * a.y;
 }
+[[nodiscard]] constexpr float dot(vec2 a, vec2 b) {
+  return a.x * b.x + a.y * b.y;
+}
 
 struct vec3 {
   float x;
@@ -188,6 +191,9 @@ struct vec3 {
 }
 [[nodiscard]] constexpr float sq_length(vec3 a) {
   return a.x * a.x + a.y * a.y + a.z * a.z;
+}
+[[nodiscard]] constexpr float dot(vec3 a, vec3 b) {
+  return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
 struct vec4 {
@@ -264,6 +270,9 @@ struct vec4 {
 }
 [[nodiscard]] constexpr float sq_length(vec4 a) {
   return a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w;
+}
+[[nodiscard]] constexpr float dot(vec4 a, vec4 b) {
+  return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 struct ivec2 {
