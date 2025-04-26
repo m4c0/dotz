@@ -219,6 +219,8 @@ struct vec4 {
   [[nodiscard]] constexpr auto xy() const { return vec2{x, y}; }
   [[nodiscard]] constexpr auto xz() const { return vec2{x, z}; }
   [[nodiscard]] constexpr auto zw() const { return vec2{z, w}; }
+
+  [[nodiscard]] constexpr auto xyz() const { return vec3{x, y, z}; }
 };
 [[nodiscard]] constexpr vec4 operator-(vec4 a) {
   return vec4{-a.x, -a.y, -a.z, -a.w};
