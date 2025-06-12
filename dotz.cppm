@@ -131,6 +131,7 @@ struct vec3 {
       : x{static_cast<float>(x)}
       , y{static_cast<float>(y)}
       , z{static_cast<float>(z)} {}
+  constexpr vec3(vec2 xy, float z) : vec3 { xy.x, xy.y, z } {}
 
   constexpr vec3(const vec3 &o) = default;
   constexpr vec3(vec3 &&o) = default;
