@@ -39,7 +39,7 @@ template<typename T>
 }
 
 [[nodiscard]] constexpr auto normalise(auto v) { return v / length(v); }
-[[nodiscard]] constexpr float length(auto a) { return sqrt(sq_length(a)); }
+[[nodiscard]] constexpr float length(auto a) { return ::sqrtf(sq_length(a)); }
 
 struct vec2 {
   float x;
