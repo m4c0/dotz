@@ -48,13 +48,10 @@ struct vec2 {
   constexpr vec2() = default;
   constexpr vec2(float a) : vec2{a, a} {}
   constexpr vec2(int a) : vec2{a, a} {}
-  constexpr vec2(float x, float y) : x{x}, y{y} {}
-  constexpr vec2(unsigned x, unsigned y)
-      : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)} {}
-  constexpr vec2(int x, int y)
-      : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)} {}
+  constexpr vec2(auto && x, auto && y) :
+    x { static_cast<float>(x) }
+  , y { static_cast<float>(y) }
+  {}
 
   constexpr vec2(const vec2 &o) = default;
   constexpr vec2(vec2 &&o) = default;
@@ -122,15 +119,11 @@ struct vec3 {
   constexpr vec3() = default;
   constexpr vec3(float a) : vec3{a, a, a} {}
   constexpr vec3(int a) : vec3{a, a, a} {}
-  constexpr vec3(float x, float y, float z) : x{x}, y{y}, z{z} {}
-  constexpr vec3(unsigned x, unsigned y, unsigned z)
-      : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)}
-      , z{static_cast<float>(z)} {}
-  constexpr vec3(int x, int y, int z)
-      : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)}
-      , z{static_cast<float>(z)} {}
+  constexpr vec3(auto && x, auto && y, auto && z) :
+    x { static_cast<float>(x) }
+  , y { static_cast<float>(y) }
+  , z { static_cast<float>(z) }
+  {}
   constexpr vec3(vec2 xy, float z) : vec3 { xy.x, xy.y, z } {}
 
   constexpr vec3(const vec3 &o) = default;
@@ -197,17 +190,12 @@ struct vec4 {
   constexpr vec4() = default;
   constexpr vec4(float a) : vec4{a, a, a, a} {}
   constexpr vec4(int a) : vec4{a, a, a, a} {}
-  constexpr vec4(float x, float y, float z, float w) : x{x}, y{y}, z{z}, w{w} {}
-  constexpr vec4(unsigned x, unsigned y, unsigned z, unsigned w)
-      : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)}
-      , z{static_cast<float>(z)}
-      , w{static_cast<float>(w)} {}
-  constexpr vec4(int x, int y, int z, int w)
-      : x{static_cast<float>(x)}
-      , y{static_cast<float>(y)}
-      , z{static_cast<float>(z)}
-      , w{static_cast<float>(w)} {}
+  constexpr vec4(auto && x, auto && y, auto && z, auto && w) :
+    x { static_cast<float>(x) }
+  , y { static_cast<float>(y) }
+  , z { static_cast<float>(z) }
+  , w { static_cast<float>(w) }
+  {}
   constexpr vec4(vec2 xy, vec2 zw) : vec4 { xy.x, xy.y, zw.x, zw.y } {}
   constexpr vec4(vec2 xy, float z, float w) : vec4 { xy.x, xy.y, z, w } {}
   constexpr vec4(vec3 xyz, float w) : vec4 { xyz.x, xyz.y, xyz.z, w } {}
