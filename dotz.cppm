@@ -48,6 +48,7 @@ struct vec2 {
   constexpr vec2() = default;
   constexpr vec2(float a) : vec2{a, a} {}
   constexpr vec2(int a) : vec2{a, a} {}
+  constexpr vec2(unsigned a) : vec2{a, a} {}
   constexpr vec2(auto && x, auto && y) :
     x { static_cast<float>(x) }
   , y { static_cast<float>(y) }
@@ -119,6 +120,7 @@ struct vec3 {
   constexpr vec3() = default;
   constexpr vec3(float a) : vec3{a, a, a} {}
   constexpr vec3(int a) : vec3{a, a, a} {}
+  constexpr vec3(unsigned a) : vec3{a, a, a} {}
   constexpr vec3(auto && x, auto && y, auto && z) :
     x { static_cast<float>(x) }
   , y { static_cast<float>(y) }
@@ -190,6 +192,7 @@ struct vec4 {
   constexpr vec4() = default;
   constexpr vec4(float a) : vec4{a, a, a, a} {}
   constexpr vec4(int a) : vec4{a, a, a, a} {}
+  constexpr vec4(unsigned a) : vec4{a, a, a, a} {}
   constexpr vec4(auto && x, auto && y, auto && z, auto && w) :
     x { static_cast<float>(x) }
   , y { static_cast<float>(y) }
