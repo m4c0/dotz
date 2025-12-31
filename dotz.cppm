@@ -346,6 +346,7 @@ struct ivec4 {
       , z{static_cast<int>(z)}
       , w{static_cast<int>(w)} {}
   constexpr ivec4(int x, int y, int z, int w) : x{x}, y{y}, z{z}, w{w} {}
+  constexpr ivec4(ivec2 a, ivec2 b) : ivec4 { a.x, a.y, b.x, b.y } {}
 
   constexpr ivec4(const ivec4 &o) = default;
   constexpr ivec4(ivec4 &&o) = default;
