@@ -199,6 +199,11 @@ struct vec4 {
   , z { static_cast<float>(z) }
   , w { static_cast<float>(w) }
   {}
+
+  // vec4(f, f) and vec4(f, f, f) should not be used
+  vec4(auto && x, auto && y);
+  vec4(auto && x, auto && y, auto && z);
+
   constexpr vec4(vec2 xy, vec2 zw) : vec4 { xy.x, xy.y, zw.x, zw.y } {}
   constexpr vec4(vec2 xy, float z, float w) : vec4 { xy.x, xy.y, z, w } {}
   constexpr vec4(vec3 xyz, float w) : vec4 { xyz.x, xyz.y, xyz.z, w } {}
