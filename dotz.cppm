@@ -340,6 +340,75 @@ struct ivec2 {
   return vec2{a.x / b, a.y / b};
 }
 
+struct ivec3 {
+  int x;
+  int y;
+  int z;
+
+  constexpr ivec3() = default;
+  constexpr ivec3(int a) : ivec3{a, a, a} {}
+  constexpr ivec3(unsigned x, unsigned y, unsigned z)
+      : x{static_cast<int>(x)}
+      , y{static_cast<int>(y)}
+      , z{static_cast<int>(z)} {}
+  constexpr ivec3(int x, int y, int z) : x{x}, y{y}, z{z} {}
+
+  constexpr ivec3(const ivec3 &o) = default;
+  constexpr ivec3(ivec3 &&o) = default;
+  constexpr ivec3 &operator=(const ivec3 &o) = default;
+  constexpr ivec3 &operator=(ivec3 &&o) = default;
+
+  [[nodiscard]] constexpr bool operator==(const ivec3 &o) const {
+    return x == o.x && y == o.y && z == o.z;
+  }
+
+  [[nodiscard]] constexpr operator vec3() const { return {x, y, z}; }
+};
+
+[[nodiscard]] constexpr ivec3 operator-(ivec3 a) {
+  return ivec3{-a.x, -a.y, -a.z};
+}
+[[nodiscard]] constexpr ivec3 operator+(ivec3 a, int b) {
+  return ivec3{a.x + b, a.y + b, a.z + b};
+}
+[[nodiscard]] constexpr ivec3 operator-(ivec3 a, int b) {
+  return ivec3{a.x - b, a.y - b, a.z - b};
+}
+[[nodiscard]] constexpr ivec3 operator*(ivec3 a, int b) {
+  return ivec3{a.x * b, a.y * b, a.z * b};
+}
+[[nodiscard]] constexpr ivec3 operator/(ivec3 a, int b) {
+  return ivec3{a.x / b, a.y / b, a.z / b};
+}
+[[nodiscard]] constexpr ivec3 operator+(ivec3 a, ivec3 b) {
+  return ivec3{a.x + b.x, a.y + b.y, a.z + b.z};
+}
+[[nodiscard]] constexpr ivec3 operator-(ivec3 a, ivec3 b) {
+  return ivec3{a.x - b.x, a.y - b.y, a.z - b.z};
+}
+[[nodiscard]] constexpr ivec3 operator*(ivec3 a, ivec3 b) {
+  return ivec3{a.x * b.x, a.y * b.y, a.z * b.z};
+}
+[[nodiscard]] constexpr ivec3 operator/(ivec3 a, ivec3 b) {
+  return ivec3{a.x / b.x, a.y / b.y, a.z / b.z};
+}
+[[nodiscard]] constexpr ivec3 operator%(ivec3 a, ivec3 b) {
+  return ivec3{a.x % b.x, a.y % b.y, a.z % b.z};
+}
+
+[[nodiscard]] constexpr ivec3 min(ivec3 a, ivec3 b) {
+  return ivec3{min(a.x, b.x), min(a.y, b.y), min(a.z, b.z)};
+}
+[[nodiscard]] constexpr ivec3 max(ivec3 a, ivec3 b) {
+  return ivec3{max(a.x, b.x), max(a.y, b.y), max(a.z, b.z)};
+}
+[[nodiscard]] constexpr ivec3 abs(ivec3 a) {
+  return ivec3{abs(a.x), abs(a.y), abs(a.z)};
+}
+[[nodiscard]] constexpr int sq_length(ivec3 a) {
+  return a.x * a.x + a.y * a.y + a.z * a.z;
+}
+
 struct ivec4 {
   int x;
   int y;
